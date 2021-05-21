@@ -7,9 +7,16 @@ import java.util.Map;
 
 public class MyStepdefs {
 
+    private Context context;
+
+    public MyStepdefs(Context context) {
+        this.context = context;
+    }
+
     @When("I login to the app")
     public void iLoginToTheApp() {
         System.out.println("Login to the App.");
+        System.out.println("The following user were created: " + context.getIds());
     }
 
     @And("I set the username {string}")
