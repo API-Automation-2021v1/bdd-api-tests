@@ -6,8 +6,6 @@ import io.restassured.specification.RequestSpecification;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.Map;
-
 /**
  * Defines methods to send requests.
  */
