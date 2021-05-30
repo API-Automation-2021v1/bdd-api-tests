@@ -45,20 +45,6 @@ public final class RequestManager {
     }
 
     /**
-     * Sends a GET request with custom headers.
-     *
-     * @param endpoint service endpoint.
-     * @param headers  custom headers.
-     * @return response object.
-     */
-    public static Response sendGetRequest(final String endpoint, final Map<String, String> headers) {
-        LOGGER.info("Sending GET request");
-        LOGGER.info("Endpoint: " + endpoint);
-        LOGGER.info("Headers: " + headers.toString());
-        return RestAssured.given(requestSpecification.headers(headers)).when().get(endpoint);
-    }
-
-    /**
      * Sends POST request.
      *
      * @param endpoint service endpoint.
@@ -70,23 +56,6 @@ public final class RequestManager {
         LOGGER.info("Endpoint: " + endpoint);
         LOGGER.info("Body: " + body);
         return RestAssured.given(requestSpecification.body(body)).when().post(endpoint);
-    }
-
-    /**
-     * Sends POST request with custom headers.
-     *
-     * @param endpoint service endpoint.
-     * @param body     request body.
-     * @param headers  custom headers.
-     * @return response object.
-     */
-    public static Response sendPostRequest(final String endpoint, final String body,
-                                           final Map<String, String> headers) {
-        LOGGER.info("Sending POST request");
-        LOGGER.info("Endpoint: " + endpoint);
-        LOGGER.info("Body: " + body);
-        LOGGER.info("Headers: " + headers.toString());
-        return RestAssured.given(requestSpecification.body(body).headers(headers)).when().post(endpoint);
     }
 
     /**
@@ -104,22 +73,6 @@ public final class RequestManager {
     }
 
     /**
-     * Sends PUT request with custom headers.
-     *
-     * @param endpoint service endpoint.
-     * @param body     request body.
-     * @param headers  custom headers.
-     * @return response object.
-     */
-    public static Response sendPutRequest(final String endpoint, final String body, final Map<String, String> headers) {
-        LOGGER.info("Sending PUT request");
-        LOGGER.info("Endpoint: " + endpoint);
-        LOGGER.info("Body: " + body);
-        LOGGER.info("Headers: " + headers.toString());
-        return RestAssured.given(requestSpecification.body(body).headers(headers)).when().put(endpoint);
-    }
-
-    /**
      * Sends DELETE request.
      *
      * @param endpoint service endpoint.
@@ -129,19 +82,5 @@ public final class RequestManager {
         LOGGER.info("Sending DELETE request");
         LOGGER.info("Endpoint: " + endpoint);
         return RestAssured.given(requestSpecification).when().delete(endpoint);
-    }
-
-    /**
-     * Sends DELETE request.
-     *
-     * @param endpoint service endpoint.
-     * @param headers  custom headers.
-     * @return response object.
-     */
-    public static Response sendDeleteRequest(final String endpoint, final Map<String, String> headers) {
-        LOGGER.info("Sending DELETE request");
-        LOGGER.info("Endpoint: " + endpoint);
-        LOGGER.info("Headers: " + headers);
-        return RestAssured.given(requestSpecification.headers(headers)).when().delete(endpoint);
     }
 }
