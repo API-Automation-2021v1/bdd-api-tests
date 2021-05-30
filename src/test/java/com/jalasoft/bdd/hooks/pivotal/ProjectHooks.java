@@ -41,7 +41,9 @@ public class ProjectHooks {
      */
     @After(value = "@deletePivotalProjectPostCondition")
     public void deleteProject() {
-        String id = context.getResponseData("id").toString();
+        String id = context.getData("id") == null
+                ? context.getResponseData("id").toString()
+                : context.getData("id");
         if (id != null && !id.isEmpty()) {
             RequestManager.setReqSpec(ReqSpecFactory.buildReqSpec("pivotal tracker"));
             String endpoint = "projects/".concat(id);

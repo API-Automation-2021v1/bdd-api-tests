@@ -41,7 +41,9 @@ public class BoardHooks {
      */
     @After(value = "@deleteTrelloBoardPostCondition")
     public void deleteBoard() {
-        String id = context.getResponseData("id").toString();
+        String id = context.getData("id") == null
+                ? context.getResponseData("id").toString()
+                : context.getData("id");
         if (id != null && !id.isEmpty()) {
             RequestManager.setReqSpec(ReqSpecFactory.buildReqSpec("trello"));
             String endpoint = "boards/".concat(id);
