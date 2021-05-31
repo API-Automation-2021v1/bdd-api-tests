@@ -1,7 +1,7 @@
 @pivotal
 Feature: Pivotal Tracker - Create project
 
-  @deletePivotalProjectPostCondition
+  @smoke @functional @deletePivotalProjectPostCondition
   Scenario: Create a project
     Given the user sets valid authentication headers for "Pivotal Tracker" API request
     When the user sends a POST request to "projects" with the following data
@@ -15,6 +15,7 @@ Feature: Pivotal Tracker - Create project
     And verifies that the response body should contain the following values
       | name | API Automation Project |
 
+  @negative
   Scenario: Project is not created when using invalid authentication
     Given the user sets the following headers for "Pivotal Tracker" API request
       | X-TrackerToken | someinvalidtoken |

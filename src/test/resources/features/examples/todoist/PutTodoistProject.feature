@@ -1,7 +1,7 @@
 @todoist
 Feature: Pivotal Tracker - Modify project
 
-  @createTodoistProjectPreCondition @deleteTodoistProjectPostCondition
+  @functional @createTodoistProjectPreCondition @deleteTodoistProjectPostCondition
   Scenario: Modify a project
     Given the user sets valid authentication headers for "Todoist" API request
     When the user sends a POST request to "projects/{id}" with the following data

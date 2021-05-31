@@ -1,7 +1,7 @@
 @trello
 Feature: Trello - Create board
 
-  @deleteTrelloBoardPostCondition
+  @smoke @functional @deleteTrelloBoardPostCondition
   Scenario: Create a board
     Given the user sets valid authentication headers for "Trello" API request
     When the user sends a POST request to "boards" with the following data
@@ -15,6 +15,7 @@ Feature: Trello - Create board
     And verifies that the response body should contain the following values
       | name | API Automation Board |
 
+  @negative
   Scenario: Board is not created when using invalid authentication
     Given the user sets the following headers for "Trello" API request
       | key | someinvalidkey |

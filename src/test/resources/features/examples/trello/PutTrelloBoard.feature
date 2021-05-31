@@ -1,7 +1,7 @@
 @trello
 Feature: Trello - Modify board
 
-  @createTrelloBoardPreCondition @deleteTrelloBoardPostCondition
+  @functional @createTrelloBoardPreCondition @deleteTrelloBoardPostCondition
   Scenario: Modify a board
     Given the user sets valid authentication headers for "Trello" API request
     When the user sends a PUT request to "boards/{id}" with the following data

@@ -1,7 +1,7 @@
 @pivotal
-Feature: Todoist - Modify project
+Feature: Pivotal - Modify project
 
-  @createPivotalProjectPreCondition @deletePivotalProjectPostCondition
+  @functional @createPivotalProjectPreCondition @deletePivotalProjectPostCondition
   Scenario: Modify a project
     Given the user sets valid authentication headers for "Pivotal Tracker" API request
     When the user sends a PUT request to "projects/{id}" with the following data

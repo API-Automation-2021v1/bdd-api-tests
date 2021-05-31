@@ -7,6 +7,7 @@ import io.cucumber.testng.CucumberOptions;
  * Defines Cucumber Runner.
  */
 @CucumberOptions(
+        plugin = "pretty",
         features = "src/test/resources/features",
         glue = "com.jalasoft.bdd"
 )
