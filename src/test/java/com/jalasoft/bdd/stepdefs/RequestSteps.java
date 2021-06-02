@@ -6,6 +6,7 @@ import com.jalasoft.bdd.utils.AssertSchemaUtils;
 import com.jalasoft.bdd.utils.JsonPathUtils;
 import com.jalasoft.bdd.utils.Mapper;
 import com.jalasoft.bdd.utils.ReqSpecFactory;
+import com.jalasoft.bdd.config.Environment;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -20,6 +21,9 @@ import java.util.Map;
 public class RequestSteps {
 
     private Response response;
+    private Response responseFirstList;
+    private Response responseSecondList;
+    private Response responseThirdList;
     private Context context;
 
     /**
@@ -135,5 +139,66 @@ public class RequestSteps {
             String expectedValue = entry.getValue();
             Assert.assertEquals(actualValue, expectedValue);
         }
+    }
+
+    /**
+     * Sends post request to create a card in the default lists of a board.
+     */
+    @When("the user creates a card in the default lists")
+    public void createCardInDefaultList() {
+        final int startFirstIdList = 1;
+        final int endFirstIdList = 25;
+        final int startSecondIdList = 27;
+        final int endSecondIdList = 51;
+        final int startThirdIdList = 53;
+        final int endThirdIdList = 77;
+        String idBoard = context.getData("id");
+        String endPointList = Environment.getInstance()
+                .getBaseURL("trello")
+                .concat("/boards/")
+                .concat(idBoard)
+                .concat("/lists");
+        response = RequestManager.sendGetRequest(endPointList);
+        String idLists = JsonPathUtils.getValue(response, "id");
+        String firstIdListDefault = idLists.substring(startFirstIdList, endFirstIdList);
+        String secondIdListDefault = idLists.substring(startSecondIdList, endSecondIdList);
+        String thirdIdListDefault = idLists.substring(startThirdIdList, endThirdIdList);
+        String endPointCreateCard = Environment.getInstance().getBaseURL("trello").concat("/cards");
+        String bodyFirstList = "{\"name\":\"First Card by Automation\",\"idList\":\"".concat(firstIdListDefault)
+                .concat("\"}");
+        String bodySecondList = "{\"name\":\"First Card by Automation\",\"idList\":\"".concat(secondIdListDefault)
+                .concat("\"}");
+        String bodyThirdList = "{\"name\":\"First Card by Automation\",\"idList\":\"".concat(thirdIdListDefault)
+                .concat("\"}");
+        responseFirstList = RequestManager.sendPostRequest(endPointCreateCard, bodyFirstList);
+        responseSecondList = RequestManager.sendPostRequest(endPointCreateCard, bodySecondList);
+        responseThirdList = RequestManager.sendPostRequest(endPointCreateCard, bodyThirdList);
+    }
+
+    /**
+     * Verifies response status code.
+     *
+     * @param expectedStatusCode expected response status code.
+     */
+    @Then("verifies that the responses should have the {int} status code")
+    public void verifyStatusCodeResponses(final int expectedStatusCode) {
+        int actualStatusCodeFirstList = responseFirstList.statusCode();
+        int actualStatusCodeSecondList = responseSecondList.statusCode();
+        int actualStatusCodeThirdList = responseThirdList.statusCode();
+        Assert.assertEquals(actualStatusCodeFirstList, expectedStatusCode);
+        Assert.assertEquals(actualStatusCodeSecondList, expectedStatusCode);
+        Assert.assertEquals(actualStatusCodeThirdList, expectedStatusCode);
+    }
+
+    /**
+     * Verifies response body json schema.
+     *
+     * @param schemaName json schema name.
+     */
+    @Then("verifies that the responses body should match with {string} JSON schema")
+    public void verifyJSONSchemaResponses(final String schemaName) {
+        AssertSchemaUtils.validateSchema(responseFirstList, schemaName);
+        AssertSchemaUtils.validateSchema(responseSecondList, schemaName);
+        AssertSchemaUtils.validateSchema(responseThirdList, schemaName);
     }
 }

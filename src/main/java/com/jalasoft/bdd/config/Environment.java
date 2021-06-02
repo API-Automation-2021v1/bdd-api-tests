@@ -15,7 +15,7 @@ import java.util.List;
  */
 public final class Environment {
 
-    private static final String JSON_CONFIG_PATH = "config.json";
+    private static final String JSON_CONFIG_PATH = "config.json.dist";
     private static Environment instance;
 
     private List<ApiConfig> apiConfigs;
