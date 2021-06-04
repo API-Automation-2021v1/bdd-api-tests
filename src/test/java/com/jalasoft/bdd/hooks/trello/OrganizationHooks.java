@@ -23,7 +23,7 @@ public class OrganizationHooks {
     /**
      * Creates an organization.
      */
-    @Before(value = "@createTrelloOrganizationPreCondition")
+    @Before(value = "@createTrelloOrganizationPreCondition", order = 1)
     public void createOrganization() {
         RequestManager.setReqSpec(ReqSpecFactory.buildReqSpec("trello"));
         String body = "{\"displayName\": \"API Automation Organization\"}";
@@ -32,6 +32,33 @@ public class OrganizationHooks {
         context.storeData("id", id);
     }
 
+    /**
+     * Creates a Board on an organization.
+     */
+    @Before(value = "@createTrelloBoardOnOrganizationPreCondition", order = 2)
+    public void createBoardOnOrganization() {
+        RequestManager.setReqSpec(ReqSpecFactory.buildReqSpec("trello"));
+        String body = "{\"name\": \"API Automation Board on Org\",\n"
+                + "\"idOrganization\": \"" + context.getData("id") + "\"}";
+        Response response = RequestManager.sendPostRequest("boards", body);
+        String id = JsonPathUtils.getValue(response, "id");
+        context.storeData("idBoard", id);
+    }
+
+    /**
+     * Deletes a Board.
+     */
+    @After(value = "@deleteTrelloBoardPostCondition")
+    public void deleteBoardOrganization() {
+        String id = context.getData("idBoard") == null
+                ? context.getResponseData("idBoard").toString()
+                : context.getData("idBoard");
+        if (id != null && !id.isEmpty()) {
+            RequestManager.setReqSpec(ReqSpecFactory.buildReqSpec("trello"));
+            String endpoint = "boards/".concat(id);
+            RequestManager.sendDeleteRequest(endpoint);
+        }
+    }
     /**
      * Deletes an organization.
      */

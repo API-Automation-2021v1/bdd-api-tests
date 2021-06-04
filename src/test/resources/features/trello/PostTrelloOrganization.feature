@@ -1,7 +1,7 @@
 @trello
 Feature: Trello - Create organization
 
-  @deleteTrelloOrganizationPostCondition
+  @smoke @functional @deleteTrelloOrganizationPostCondition
   Scenario: Create an organization
     Given the user sets valid authentication headers for "Trello" API request
     When the user sends a POST request to "organizations" with the following data
