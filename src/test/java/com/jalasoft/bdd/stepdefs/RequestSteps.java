@@ -145,7 +145,7 @@ public class RequestSteps {
      * Sends post request to create a card in the default lists of a board.
      */
     @When("the user creates a card in the default lists")
-    public void createCardInDefaultList() {
+    public void createCardInDefaultLists() {
         final int startFirstIdList = 1;
         final int endFirstIdList = 25;
         final int startSecondIdList = 27;
@@ -200,5 +200,53 @@ public class RequestSteps {
         AssertSchemaUtils.validateSchema(responseFirstList, schemaName);
         AssertSchemaUtils.validateSchema(responseSecondList, schemaName);
         AssertSchemaUtils.validateSchema(responseThirdList, schemaName);
+    }
+
+    /**
+     * Deletes the card in the default lists.
+     */
+    @When("the user deletes the cards in the default list")
+    public void deleteCardInDefaultLists() {
+        String idFirstCard = context.getData("idFirstCard");
+        String idSecondCard = context.getData("idSecondCard");
+        String idThirdCard = context.getData("idThirdCard");
+        String endPointDeleteCard = Environment.getInstance().getBaseURL("trello").concat("/cards/");
+        responseFirstList = RequestManager.sendDeleteRequest(endPointDeleteCard.concat(idFirstCard));
+        responseSecondList = RequestManager.sendDeleteRequest(endPointDeleteCard.concat(idSecondCard));
+        responseThirdList = RequestManager.sendDeleteRequest(endPointDeleteCard.concat(idThirdCard));
+    }
+
+    /**
+     * Update the card in the default lists.
+     */
+    @When("the user updates the cards in the default list")
+    public void updateCardInDefaultLists() {
+        String idFirstCard = context.getData("idFirstCard");
+        String idSecondCard = context.getData("idSecondCard");
+        String idThirdCard = context.getData("idThirdCard");
+        String endPointUpdateCard = Environment.getInstance().getBaseURL("trello").concat("/cards/");
+        String bodyFirstCardUpdate = "{\"name\":\"Updating First Card Name\"}";
+        String bodySecondCardUpdate = "{\"name\":\"Updating Second Card Name\"}";
+        String bodyThirdCardUpdate = "{\"name\":\"Updating Third Card Name\"}";
+        responseFirstList = RequestManager.sendPutRequest(endPointUpdateCard
+                .concat(idFirstCard), bodyFirstCardUpdate);
+        responseSecondList = RequestManager.sendPutRequest(endPointUpdateCard
+                .concat(idSecondCard), bodySecondCardUpdate);
+        responseThirdList = RequestManager.sendPutRequest(endPointUpdateCard
+                .concat(idThirdCard), bodyThirdCardUpdate);
+    }
+
+    /**
+     * Get the information of card in the default lists.
+     */
+    @When("the user gets the information of cards in the default lists")
+    public void getCardsInDefaultLists() {
+        String idFirstCard = context.getData("idFirstCard");
+        String idSecondCard = context.getData("idSecondCard");
+        String idThirdCard = context.getData("idThirdCard");
+        String endPointGetCard = Environment.getInstance().getBaseURL("trello").concat("/cards/");
+        responseFirstList = RequestManager.sendGetRequest(endPointGetCard.concat(idFirstCard));
+        responseSecondList = RequestManager.sendGetRequest(endPointGetCard.concat(idSecondCard));
+        responseThirdList = RequestManager.sendGetRequest(endPointGetCard.concat(idThirdCard));
     }
 }
