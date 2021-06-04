@@ -28,7 +28,6 @@ dependencies {
 
 allure {
     version = '2.14.0'
-    autoconfigure = true
 }
 
 checkstyle {
@@ -51,8 +50,22 @@ tasks.withType(Pmd) {
 task executeBDDTests(type: Test) {
     useTestNG()
     options {
+        jvmArgs = ['-Dcucumber.plugin=rerun:build/rerun.txt,' +
+                           'io.qameta.allure.cucumber6jvm.AllureCucumber6Jvm']
         jvmArgs = ['-Dcucumber.filter.tags=' + filterTags]
     }
     scanForTestClasses = false
     testLogging.showStandardStreams = true
+    finalizedBy 'allureReport'
+}
+
+task reExecuteBDDTests(type: Test) {
+    useTestNG()
+    options {
+        jvmArgs = ['-Dcucumber.plugin=io.qameta.allure.cucumber6jvm.AllureCucumber6Jvm']
+        jvmArgs = ['-Dcucumber.features=@build/rerun.txt']
+    }
+    scanForTestClasses = false
+    testLogging.showStandardStreams = true
+    finalizedBy 'allureReport'
 }
