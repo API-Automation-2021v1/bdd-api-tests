@@ -14,6 +14,7 @@ import io.restassured.response.Response;
 import org.testng.Assert;
 
 import java.util.Map;
+import java.util.Random;
 
 /**
  * Defines request step definitions for API requests.
@@ -166,9 +167,9 @@ public class RequestSteps {
         String endPointCreateCard = Environment.getInstance().getBaseURL("trello").concat("/cards");
         String bodyFirstList = "{\"name\":\"First Card by Automation\",\"idList\":\"".concat(firstIdListDefault)
                 .concat("\"}");
-        String bodySecondList = "{\"name\":\"First Card by Automation\",\"idList\":\"".concat(secondIdListDefault)
+        String bodySecondList = "{\"name\":\"Second Card by Automation\",\"idList\":\"".concat(secondIdListDefault)
                 .concat("\"}");
-        String bodyThirdList = "{\"name\":\"First Card by Automation\",\"idList\":\"".concat(thirdIdListDefault)
+        String bodyThirdList = "{\"name\":\"Third Card by Automation\",\"idList\":\"".concat(thirdIdListDefault)
                 .concat("\"}");
         responseFirstList = RequestManager.sendPostRequest(endPointCreateCard, bodyFirstList);
         responseSecondList = RequestManager.sendPostRequest(endPointCreateCard, bodySecondList);
@@ -217,6 +218,32 @@ public class RequestSteps {
     }
 
     /**
+     * Tries to delete the cards with a invalid idCard.
+     */
+    @When("the user try deletes the cards in the default list with invalid idCard")
+    public void deleteTryCardWithInvalidIdCard() {
+        Random r = new Random();
+        final int numberForGenerateRandomCharacter = 26;
+        char firstCharacterRandomChar = (char) (r.nextInt(numberForGenerateRandomCharacter) + 'a');
+        char secondCharacterRandomChar = (char) (r.nextInt(numberForGenerateRandomCharacter) + 'a');
+        char thirdCharacterRandomChar = (char) (r.nextInt(numberForGenerateRandomCharacter) + 'a');
+        String firstCharacterRandom = String.valueOf(firstCharacterRandomChar);
+        String secondCharacterRandom = String.valueOf(secondCharacterRandomChar);
+        String thirdCharacterRandom = String.valueOf(thirdCharacterRandomChar);
+        String idFirstCard = context.getData("idFirstCard");
+        String idSecondCard = context.getData("idSecondCard");
+        String idThirdCard = context.getData("idThirdCard");
+        String endPointDeleteCard = Environment.getInstance().getBaseURL("trello").concat("/cards/");
+        responseFirstList = RequestManager.sendDeleteRequest(endPointDeleteCard
+                .concat(idFirstCard)
+                .concat(firstCharacterRandom));
+        responseSecondList = RequestManager.sendDeleteRequest(endPointDeleteCard
+                .concat(idSecondCard).concat(secondCharacterRandom));
+        responseThirdList = RequestManager.sendDeleteRequest(endPointDeleteCard.concat(idThirdCard)
+                .concat(thirdCharacterRandom));
+    }
+
+    /**
      * Update the card in the default lists.
      */
     @When("the user updates the cards in the default list")
@@ -237,7 +264,7 @@ public class RequestSteps {
     }
 
     /**
-     * Get the information of card in the default lists.
+     * Gets the information of card in the default lists.
      */
     @When("the user gets the information of cards in the default lists")
     public void getCardsInDefaultLists() {
@@ -248,5 +275,88 @@ public class RequestSteps {
         responseFirstList = RequestManager.sendGetRequest(endPointGetCard.concat(idFirstCard));
         responseSecondList = RequestManager.sendGetRequest(endPointGetCard.concat(idSecondCard));
         responseThirdList = RequestManager.sendGetRequest(endPointGetCard.concat(idThirdCard));
+    }
+
+    /**
+     * Creates a card with a empty name for a card.
+     */
+    @When("the user creates a card in the default lists with empty name for a card")
+    public void postCardInvalidBody() {
+        final int startFirstIdList = 1;
+        final int endFirstIdList = 25;
+        final int startSecondIdList = 27;
+        final int endSecondIdList = 51;
+        final int startThirdIdList = 53;
+        final int endThirdIdList = 77;
+        String idBoard = context.getData("id");
+        String endPointList = Environment.getInstance()
+                .getBaseURL("trello")
+                .concat("/boards/")
+                .concat(idBoard)
+                .concat("/lists");
+        response = RequestManager.sendGetRequest(endPointList);
+        String idLists = JsonPathUtils.getValue(response, "id");
+        String firstIdListDefault = idLists.substring(startFirstIdList, endFirstIdList);
+        String secondIdListDefault = idLists.substring(startSecondIdList, endSecondIdList);
+        String thirdIdListDefault = idLists.substring(startThirdIdList, endThirdIdList);
+        String endPointCreateCard = Environment.getInstance().getBaseURL("trello").concat("/cards");
+        String bodyFirstList = "{\"name\":\"    \",\"idList\":\"".concat(firstIdListDefault)
+                .concat("\"}");
+        String bodySecondList = "{\"name\":\"    \",\"idList\":\"".concat(secondIdListDefault)
+                .concat("\"}");
+        String bodyThirdList = "{\"name\":\"    \",\"idList\":\"".concat(thirdIdListDefault)
+                .concat("\"}");
+        responseFirstList = RequestManager.sendPostRequest(endPointCreateCard, bodyFirstList);
+        responseSecondList = RequestManager.sendPostRequest(endPointCreateCard, bodySecondList);
+        responseThirdList = RequestManager.sendPostRequest(endPointCreateCard, bodyThirdList);
+    }
+
+    /**
+     * Creates a card with a empty idList for a card.
+     */
+    @When("the user creates a card in the default lists with empty idList")
+    public void postCardEmptyIdList() {
+        String idBoard = context.getData("id");
+        String endPointList = Environment.getInstance()
+                .getBaseURL("trello")
+                .concat("/boards/")
+                .concat(idBoard)
+                .concat("/lists");
+        response = RequestManager.sendGetRequest(endPointList);
+        String endPointCreateCard = Environment.getInstance().getBaseURL("trello").concat("/cards");
+        String bodyFirstList = "{\"name\":\"First Card by Automation\",\"idList\":\""
+                .concat("\"}");
+        String bodySecondList = "{\"name\":\"Second Card by Automation\",\"idList\":\""
+                .concat("\"}");
+        String bodyThirdList = "{\"name\":\"Third Card by Automation\",\"idList\":\""
+                .concat("\"}");
+        responseFirstList = RequestManager.sendPostRequest(endPointCreateCard, bodyFirstList);
+        responseSecondList = RequestManager.sendPostRequest(endPointCreateCard, bodySecondList);
+        responseThirdList = RequestManager.sendPostRequest(endPointCreateCard, bodyThirdList);
+    }
+
+    /**
+     * Updates a card without idCard for a card.
+     */
+    @When("the user updates the cards in the default lists without idCard")
+    public void putCardEmptyIdList() {
+        String endPointUpdateCard = Environment.getInstance().getBaseURL("trello").concat("/cards/");
+        String bodyFirstCardUpdate = "{\"name\":\"Updating First Card Name\"}";
+        String bodySecondCardUpdate = "{\"name\":\"Updating Second Card Name\"}";
+        String bodyThirdCardUpdate = "{\"name\":\"Updating Third Card Name\"}";
+        responseFirstList = RequestManager.sendPutRequest(endPointUpdateCard, bodyFirstCardUpdate);
+        responseSecondList = RequestManager.sendPutRequest(endPointUpdateCard, bodySecondCardUpdate);
+        responseThirdList = RequestManager.sendPutRequest(endPointUpdateCard, bodyThirdCardUpdate);
+    }
+
+    /**
+     * Gets a card information without idCard.
+     */
+    @When("the user try gets the information of cards in the default lists without idCard")
+    public void getTryCardInformation() {
+        String endPointGetCard = Environment.getInstance().getBaseURL("trello").concat("/cards/");
+        responseFirstList = RequestManager.sendGetRequest(endPointGetCard);
+        responseSecondList = RequestManager.sendGetRequest(endPointGetCard);
+        responseThirdList = RequestManager.sendGetRequest(endPointGetCard);
     }
 }
