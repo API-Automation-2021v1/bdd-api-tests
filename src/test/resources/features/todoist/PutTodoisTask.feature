@@ -5,7 +5,7 @@ Feature: Todoist - Modify Task
   @smoke @functional
   Scenario: Modify a task
     Given the user sets valid authentication headers for "Todoist" API request
-    When the user sends a POST request to "tasks/4886190853" with the following data
+    When the user sends a POST request to "tasks/{id}" with the following data
      """
       {
         "content": "API Automation Task - modified"
@@ -16,7 +16,7 @@ Feature: Todoist - Modify Task
   @negative
   Scenario: Modify a non-existent task
     Given the user sets valid authentication headers for "Todoist" API request
-    When the user sends a POST request to "tasks/1" with the following data
+    When the user sends a POST request to "tasks/{not valid id}" with the following data
       """
       {
         "displayName": "API Automation Task - modified"
