@@ -6,6 +6,7 @@ import com.jalasoft.bdd.utils.AssertSchemaUtils;
 import com.jalasoft.bdd.utils.JsonPathUtils;
 import com.jalasoft.bdd.utils.Mapper;
 import com.jalasoft.bdd.utils.ReqSpecFactory;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -135,5 +136,20 @@ public class RequestSteps {
             String expectedValue = entry.getValue();
             Assert.assertEquals(actualValue, expectedValue);
         }
+    }
+    /**
+     * Verifies response body at least a value.
+     *
+     * @param expectedData expected data.
+     */
+
+    @And("verifies that the response body should contain at least the following value")
+    public void verifiesThatResponseBodyShouldContainAtLeastTheFollowingValue(final Map<String, String> expectedData) {
+         for (Map.Entry<String, String> entry : expectedData.entrySet()) {
+            String allActualValue = JsonPathUtils.getValue(response, entry.getKey());
+            String expectedValue = entry.getValue();
+            Assert.assertTrue(allActualValue.contains(expectedValue));
+        }
+
     }
 }

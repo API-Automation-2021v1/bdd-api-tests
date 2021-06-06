@@ -1,68 +1,50 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema",
-  "$id": "http://example.com/example.json",
   "type": "object",
-  "required": [
-    "id",
-    "project_id",
-    "section_id",
-    "parent_id",
-    "content",
-    "description",
-    "comment_count",
-    "assignee",
-    "assigner",
-    "order",
-    "priority",
-    "url"
-  ],
   "properties": {
     "id": {
-      "$id": "#/properties/id",
-      "type": "integer"
-    },
-    "project_id": {
-      "$id": "#/properties/project_id",
-      "type": "integer"
-    },
-    "section_id": {
-      "$id": "#/properties/section_id",
-      "type": "integer"
-    },
-    "parent_id": {
-      "$id": "#/properties/parent_id",
-      "type": "integer"
-    },
-    "content": {
-      "$id": "#/properties/content",
-      "type": "string"
-    },
-    "description": {
-      "$id": "#/properties/description",
-      "type": "string"
-    },
-    "comment_count": {
-      "$id": "#/properties/comment_count",
       "type": "integer"
     },
     "assignee": {
-      "$id": "#/properties/assignee",
       "type": "integer"
     },
-    "assigner": {
-      "$id": "#/properties/assigner",
+    "project_id": {
+      "type": "integer"
+    },
+    "section_id": {
       "type": "integer"
     },
     "order": {
-      "$id": "#/properties/order",
       "type": "integer"
+    },
+    "content": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "completed": {
+      "type": "boolean"
+    },
+    "label_ids": {
+      "type": "array"
     },
     "priority": {
-      "$id": "#/properties/priority",
       "type": "integer"
     },
+    "comment_count": {
+      "type": "integer"
+    },
+    "creator": {
+      "type": "integer"
+    },
+    "created": {
+      "type": "string"
+    },
+    "due": {
+      "type": "object"
+    },
     "url": {
-      "$id": "#/properties/url",
       "type": "string"
     }
   }
