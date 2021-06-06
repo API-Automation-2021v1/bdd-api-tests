@@ -1,6 +1,5 @@
 plugins {
     id 'java'
-    id "io.qameta.allure" version "2.8.1"
 }
 
 apply plugin: 'idea'
@@ -23,11 +22,7 @@ dependencies {
     testImplementation group: 'io.cucumber', name: 'cucumber-java', version: '6.10.4'
     testImplementation group: 'io.cucumber', name: 'cucumber-picocontainer', version: '6.10.4'
     testImplementation group: 'io.cucumber', name: 'cucumber-testng', version: '6.10.4'
-    testImplementation group: 'io.qameta.allure', name: 'allure-cucumber6-jvm', version: '2.14.0'
-}
-
-allure {
-    version = '2.14.0'
+    testImplementation group: 'com.epam.reportportal', name: 'agent-java-cucumber6', version: '5.0.6'
 }
 
 checkstyle {
@@ -51,21 +46,19 @@ task executeBDDTests(type: Test) {
     useTestNG()
     options {
         jvmArgs = ['-Dcucumber.plugin=rerun:build/rerun.txt,' +
-                           'io.qameta.allure.cucumber6jvm.AllureCucumber6Jvm']
+                           'com.epam.reportportal.cucumber.ScenarioReporter']
         jvmArgs = ['-Dcucumber.filter.tags=' + filterTags]
     }
     scanForTestClasses = false
     testLogging.showStandardStreams = true
-    finalizedBy 'allureReport'
 }
 
 task reExecuteBDDTests(type: Test) {
     useTestNG()
     options {
-        jvmArgs = ['-Dcucumber.plugin=io.qameta.allure.cucumber6jvm.AllureCucumber6Jvm']
+        jvmArgs = ['-Dcucumber.plugin=com.epam.reportportal.cucumber.ScenarioReporter']
         jvmArgs = ['-Dcucumber.features=@build/rerun.txt']
     }
     scanForTestClasses = false
     testLogging.showStandardStreams = true
-    finalizedBy 'allureReport'
 }
