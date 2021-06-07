@@ -4,7 +4,7 @@ Feature: Todoist - Create task
   @smoke @functional @deleteTodoisTaskPostCondition
   Scenario: Create a Task
     Given the user sets valid authentication headers for "Todoist" API request
-    When when user sends a POST request to "task" with the following data
+    When the user sends a POST request to "task" with the following data
       """
       {
         "content": "API Automation Task"
