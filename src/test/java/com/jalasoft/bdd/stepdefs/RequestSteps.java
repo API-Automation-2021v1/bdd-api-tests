@@ -13,6 +13,8 @@ import io.cucumber.java.en.When;
 import io.restassured.response.Response;
 import org.testng.Assert;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
@@ -140,6 +142,16 @@ public class RequestSteps {
             String expectedValue = entry.getValue();
             Assert.assertEquals(actualValue, expectedValue);
         }
+    }
+
+    /**
+     * Verifies response body is empty.
+     *
+     */
+    @Then("verifies that the response body should empty")
+    public void verifyEmptyBody() {
+        List expectedResponse = new ArrayList();
+        Assert.assertEquals(JsonPathUtils.getResponseBody(response), expectedResponse);
     }
 
     /**
