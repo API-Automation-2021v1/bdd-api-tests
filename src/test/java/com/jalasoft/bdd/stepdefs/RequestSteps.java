@@ -145,6 +145,20 @@ public class RequestSteps {
     }
 
     /**
+     * Verifies response body at least a value.
+     *
+     * @param expectedData expected data.
+     */
+    @Then("verifies that the response body should contain at least the following value")
+    public void verifiesThatResponseBodyShouldContainAtLeastTheFollowingValue(final Map<String, String> expectedData) {
+         for (Map.Entry<String, String> entry : expectedData.entrySet()) {
+            String allActualValue = JsonPathUtils.getValue(response, entry.getKey());
+            String expectedValue = entry.getValue();
+            Assert.assertTrue(allActualValue.contains(expectedValue));
+        }
+    }
+
+    /**
      * Verifies response body is empty.
      *
      */
