@@ -37,6 +37,23 @@ public class ProjectHooks {
     }
 
     /**
+     * Create a label in the project.
+     */
+    @Before(value = "@createPivotalProjectWithLabelPreCondition")
+    public void createProjectWithLabel() {
+        createProject();
+        String projectId = context.getData("id");
+        String endpoint = "projects/".concat(projectId).concat("/labels");
+        RequestManager.setReqSpec(ReqSpecFactory.buildReqSpec("pivotal tracker"));
+        String body = "{\"name\": \"api label\"}";
+        Response response = RequestManager.sendPostRequest(endpoint, body);
+        String id = JsonPathUtils.getValue(response, "id");
+        String labelName = JsonPathUtils.getValue(response, "name");
+        context.storeData("label_id", id);
+        context.storeData("label_name", labelName);
+    }
+
+    /**
      * Deletes a project.
      */
     @After(value = "@deletePivotalProjectPostCondition")

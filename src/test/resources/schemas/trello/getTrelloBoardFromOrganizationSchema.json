@@ -1,0 +1,790 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "http://example.com/example.json",
+  "type": "array",
+  "examples": [
+    [
+      {
+        "name": "API Automation Board on Org",
+        "desc": "",
+        "descData": null,
+        "closed": false,
+        "dateClosed": null,
+        "idOrganization": "60b9fdd01c04be5903e3c3e4",
+        "idEnterprise": null,
+        "limits": null,
+        "pinned": null,
+        "shortLink": "qZpZ1p41",
+        "powerUps": [],
+        "dateLastActivity": null,
+        "idTags": [],
+        "datePluginDisable": null,
+        "creationMethod": "automatic",
+        "ixUpdate": null,
+        "enterpriseOwned": false,
+        "idBoardSource": null,
+        "idMemberCreator": "58e2ea757a3916917b9e586a",
+        "id": "60b9fdd2e806f462edab14cc",
+        "starred": false,
+        "url": "https://trello.com/b/qZpZ1p41/api-automation-board-on-org",
+        "prefs": {
+          "permissionLevel": "private",
+          "hideVotes": false,
+          "voting": "disabled",
+          "comments": "members",
+          "invitations": "members",
+          "selfJoin": true,
+          "cardCovers": true,
+          "isTemplate": false,
+          "cardAging": "regular",
+          "calendarFeedEnabled": false,
+          "background": "blue",
+          "backgroundImage": null,
+          "backgroundImageScaled": null,
+          "backgroundTile": false,
+          "backgroundBrightness": "dark",
+          "backgroundColor": "#0079BF",
+          "backgroundBottomColor": "#0079BF",
+          "backgroundTopColor": "#0079BF",
+          "canBePublic": true,
+          "canBeEnterprise": true,
+          "canBeOrg": true,
+          "canBePrivate": true,
+          "canInvite": true
+        },
+        "subscribed": false,
+        "labelNames": {
+          "green": "",
+          "yellow": "",
+          "orange": "",
+          "red": "",
+          "purple": "",
+          "blue": "",
+          "sky": "",
+          "lime": "",
+          "pink": "",
+          "black": ""
+        },
+        "shortUrl": "https://trello.com/b/qZpZ1p41",
+        "templateGallery": null,
+        "premiumFeatures": [],
+        "memberships": [
+          {
+            "id": "60b9fdd2e806f462edab14d0",
+            "idMember": "58e2ea757a3916917b9e586a",
+            "memberType": "admin",
+            "unconfirmed": false,
+            "deactivated": false
+          }
+        ]
+      }
+    ]
+  ],
+  "items": {
+    "$id": "#/items",
+    "anyOf": [
+      {
+        "$id": "#/items/anyOf/0",
+        "type": "object",
+        "examples": [
+          {
+            "name": "API Automation Board on Org",
+            "desc": "",
+            "descData": null,
+            "closed": false,
+            "dateClosed": null,
+            "idOrganization": "60b9fdd01c04be5903e3c3e4",
+            "idEnterprise": null,
+            "limits": null,
+            "pinned": null,
+            "shortLink": "qZpZ1p41",
+            "powerUps": [],
+            "dateLastActivity": null,
+            "idTags": [],
+            "datePluginDisable": null,
+            "creationMethod": "automatic",
+            "ixUpdate": null,
+            "enterpriseOwned": false,
+            "idBoardSource": null,
+            "idMemberCreator": "58e2ea757a3916917b9e586a",
+            "id": "60b9fdd2e806f462edab14cc",
+            "starred": false,
+            "url": "https://trello.com/b/qZpZ1p41/api-automation-board-on-org",
+            "prefs": {
+              "permissionLevel": "private",
+              "hideVotes": false,
+              "voting": "disabled",
+              "comments": "members",
+              "invitations": "members",
+              "selfJoin": true,
+              "cardCovers": true,
+              "isTemplate": false,
+              "cardAging": "regular",
+              "calendarFeedEnabled": false,
+              "background": "blue",
+              "backgroundImage": null,
+              "backgroundImageScaled": null,
+              "backgroundTile": false,
+              "backgroundBrightness": "dark",
+              "backgroundColor": "#0079BF",
+              "backgroundBottomColor": "#0079BF",
+              "backgroundTopColor": "#0079BF",
+              "canBePublic": true,
+              "canBeEnterprise": true,
+              "canBeOrg": true,
+              "canBePrivate": true,
+              "canInvite": true
+            },
+            "subscribed": false,
+            "labelNames": {
+              "green": "",
+              "yellow": "",
+              "orange": "",
+              "red": "",
+              "purple": "",
+              "blue": "",
+              "sky": "",
+              "lime": "",
+              "pink": "",
+              "black": ""
+            },
+            "shortUrl": "https://trello.com/b/qZpZ1p41",
+            "templateGallery": null,
+            "premiumFeatures": [],
+            "memberships": [
+              {
+                "id": "60b9fdd2e806f462edab14d0",
+                "idMember": "58e2ea757a3916917b9e586a",
+                "memberType": "admin",
+                "unconfirmed": false,
+                "deactivated": false
+              }
+            ]
+          }
+        ],
+        "required": [
+          "name",
+          "desc",
+          "descData",
+          "closed",
+          "dateClosed",
+          "idOrganization",
+          "idEnterprise",
+          "limits",
+          "pinned",
+          "shortLink",
+          "powerUps",
+          "dateLastActivity",
+          "idTags",
+          "datePluginDisable",
+          "creationMethod",
+          "ixUpdate",
+          "enterpriseOwned",
+          "idBoardSource",
+          "idMemberCreator",
+          "id",
+          "starred",
+          "url",
+          "prefs",
+          "subscribed",
+          "labelNames",
+          "shortUrl",
+          "templateGallery",
+          "premiumFeatures",
+          "memberships"
+        ],
+        "properties": {
+          "name": {
+            "$id": "#/items/anyOf/0/properties/name",
+            "type": "string",
+            "examples": [
+              "API Automation Board on Org"
+            ]
+          },
+          "desc": {
+            "$id": "#/items/anyOf/0/properties/desc",
+            "type": "string",
+            "examples": [
+              ""
+            ]
+          },
+          "descData": {
+            "$id": "#/items/anyOf/0/properties/descData",
+            "type": "null",
+            "examples": [
+              null
+            ]
+          },
+          "closed": {
+            "$id": "#/items/anyOf/0/properties/closed",
+            "type": "boolean",
+            "examples": [
+              false
+            ]
+          },
+          "dateClosed": {
+            "$id": "#/items/anyOf/0/properties/dateClosed",
+            "type": "null",
+            "examples": [
+              null
+            ]
+          },
+          "idOrganization": {
+            "$id": "#/items/anyOf/0/properties/idOrganization",
+            "type": "string",
+            "examples": [
+              "60b9fdd01c04be5903e3c3e4"
+            ]
+          },
+          "idEnterprise": {
+            "$id": "#/items/anyOf/0/properties/idEnterprise",
+            "type": "null",
+            "examples": [
+              null
+            ]
+          },
+          "limits": {
+            "$id": "#/items/anyOf/0/properties/limits",
+            "type": "null",
+            "examples": [
+              null
+            ]
+          },
+          "pinned": {
+            "$id": "#/items/anyOf/0/properties/pinned",
+            "type": "null",
+            "examples": [
+              null
+            ]
+          },
+          "shortLink": {
+            "$id": "#/items/anyOf/0/properties/shortLink",
+            "type": "string",
+            "examples": [
+              "qZpZ1p41"
+            ]
+          },
+          "powerUps": {
+            "$id": "#/items/anyOf/0/properties/powerUps",
+            "type": "array",
+            "examples": [
+              []
+            ],
+            "items": {
+              "$id": "#/items/anyOf/0/properties/powerUps/items"
+            }
+          },
+          "dateLastActivity": {
+            "$id": "#/items/anyOf/0/properties/dateLastActivity",
+            "type": "null",
+            "examples": [
+              null
+            ]
+          },
+          "idTags": {
+            "$id": "#/items/anyOf/0/properties/idTags",
+            "type": "array",
+            "examples": [
+              []
+            ],
+            "items": {
+              "$id": "#/items/anyOf/0/properties/idTags/items"
+            }
+          },
+          "datePluginDisable": {
+            "$id": "#/items/anyOf/0/properties/datePluginDisable",
+            "type": "null",
+            "examples": [
+              null
+            ]
+          },
+          "creationMethod": {
+            "$id": "#/items/anyOf/0/properties/creationMethod",
+            "type": "string",
+            "examples": [
+              "automatic"
+            ]
+          },
+          "ixUpdate": {
+            "$id": "#/items/anyOf/0/properties/ixUpdate",
+            "type": "null",
+            "examples": [
+              null
+            ]
+          },
+          "enterpriseOwned": {
+            "$id": "#/items/anyOf/0/properties/enterpriseOwned",
+            "type": "boolean",
+            "examples": [
+              false
+            ]
+          },
+          "idBoardSource": {
+            "$id": "#/items/anyOf/0/properties/idBoardSource",
+            "type": "null",
+            "examples": [
+              null
+            ]
+          },
+          "idMemberCreator": {
+            "$id": "#/items/anyOf/0/properties/idMemberCreator",
+            "type": "string",
+            "examples": [
+              "58e2ea757a3916917b9e586a"
+            ]
+          },
+          "id": {
+            "$id": "#/items/anyOf/0/properties/id",
+            "type": "string",
+            "examples": [
+              "60b9fdd2e806f462edab14cc"
+            ]
+          },
+          "starred": {
+            "$id": "#/items/anyOf/0/properties/starred",
+            "type": "boolean",
+            "examples": [
+              false
+            ]
+          },
+          "url": {
+            "$id": "#/items/anyOf/0/properties/url",
+            "type": "string",
+            "examples": [
+              "https://trello.com/b/qZpZ1p41/api-automation-board-on-org"
+            ]
+          },
+          "prefs": {
+            "$id": "#/items/anyOf/0/properties/prefs",
+            "type": "object",
+            "examples": [
+              {
+                "permissionLevel": "private",
+                "hideVotes": false,
+                "voting": "disabled",
+                "comments": "members",
+                "invitations": "members",
+                "selfJoin": true,
+                "cardCovers": true,
+                "isTemplate": false,
+                "cardAging": "regular",
+                "calendarFeedEnabled": false,
+                "background": "blue",
+                "backgroundImage": null,
+                "backgroundImageScaled": null,
+                "backgroundTile": false,
+                "backgroundBrightness": "dark",
+                "backgroundColor": "#0079BF",
+                "backgroundBottomColor": "#0079BF",
+                "backgroundTopColor": "#0079BF",
+                "canBePublic": true,
+                "canBeEnterprise": true,
+                "canBeOrg": true,
+                "canBePrivate": true,
+                "canInvite": true
+              }
+            ],
+            "required": [
+              "permissionLevel",
+              "hideVotes",
+              "voting",
+              "comments",
+              "invitations",
+              "selfJoin",
+              "cardCovers",
+              "isTemplate",
+              "cardAging",
+              "calendarFeedEnabled",
+              "background",
+              "backgroundImage",
+              "backgroundImageScaled",
+              "backgroundTile",
+              "backgroundBrightness",
+              "backgroundColor",
+              "backgroundBottomColor",
+              "backgroundTopColor",
+              "canBePublic",
+              "canBeEnterprise",
+              "canBeOrg",
+              "canBePrivate",
+              "canInvite"
+            ],
+            "properties": {
+              "permissionLevel": {
+                "$id": "#/items/anyOf/0/properties/prefs/properties/permissionLevel",
+                "type": "string",
+                "examples": [
+                  "private"
+                ]
+              },
+              "hideVotes": {
+                "$id": "#/items/anyOf/0/properties/prefs/properties/hideVotes",
+                "type": "boolean",
+                "examples": [
+                  false
+                ]
+              },
+              "voting": {
+                "$id": "#/items/anyOf/0/properties/prefs/properties/voting",
+                "type": "string",
+                "examples": [
+                  "disabled"
+                ]
+              },
+              "comments": {
+                "$id": "#/items/anyOf/0/properties/prefs/properties/comments",
+                "type": "string",
+                "examples": [
+                  "members"
+                ]
+              },
+              "invitations": {
+                "$id": "#/items/anyOf/0/properties/prefs/properties/invitations",
+                "type": "string",
+                "examples": [
+                  "members"
+                ]
+              },
+              "selfJoin": {
+                "$id": "#/items/anyOf/0/properties/prefs/properties/selfJoin",
+                "type": "boolean",
+                "examples": [
+                  true
+                ]
+              },
+              "cardCovers": {
+                "$id": "#/items/anyOf/0/properties/prefs/properties/cardCovers",
+                "type": "boolean",
+                "examples": [
+                  true
+                ]
+              },
+              "isTemplate": {
+                "$id": "#/items/anyOf/0/properties/prefs/properties/isTemplate",
+                "type": "boolean",
+                "examples": [
+                  false
+                ]
+              },
+              "cardAging": {
+                "$id": "#/items/anyOf/0/properties/prefs/properties/cardAging",
+                "type": "string",
+                "examples": [
+                  "regular"
+                ]
+              },
+              "calendarFeedEnabled": {
+                "$id": "#/items/anyOf/0/properties/prefs/properties/calendarFeedEnabled",
+                "type": "boolean",
+                "examples": [
+                  false
+                ]
+              },
+              "background": {
+                "$id": "#/items/anyOf/0/properties/prefs/properties/background",
+                "type": "string",
+                "examples": [
+                  "blue"
+                ]
+              },
+              "backgroundImage": {
+                "$id": "#/items/anyOf/0/properties/prefs/properties/backgroundImage",
+                "type": "null",
+                "examples": [
+                  null
+                ]
+              },
+              "backgroundImageScaled": {
+                "$id": "#/items/anyOf/0/properties/prefs/properties/backgroundImageScaled",
+                "type": "null",
+                "examples": [
+                  null
+                ]
+              },
+              "backgroundTile": {
+                "$id": "#/items/anyOf/0/properties/prefs/properties/backgroundTile",
+                "type": "boolean",
+                "examples": [
+                  false
+                ]
+              },
+              "backgroundBrightness": {
+                "$id": "#/items/anyOf/0/properties/prefs/properties/backgroundBrightness",
+                "type": "string",
+                "examples": [
+                  "dark"
+                ]
+              },
+              "backgroundColor": {
+                "$id": "#/items/anyOf/0/properties/prefs/properties/backgroundColor",
+                "type": "string",
+                "examples": [
+                  "#0079BF"
+                ]
+              },
+              "backgroundBottomColor": {
+                "$id": "#/items/anyOf/0/properties/prefs/properties/backgroundBottomColor",
+                "type": "string",
+                "examples": [
+                  "#0079BF"
+                ]
+              },
+              "backgroundTopColor": {
+                "$id": "#/items/anyOf/0/properties/prefs/properties/backgroundTopColor",
+                "type": "string",
+                "examples": [
+                  "#0079BF"
+                ]
+              },
+              "canBePublic": {
+                "$id": "#/items/anyOf/0/properties/prefs/properties/canBePublic",
+                "type": "boolean",
+                "examples": [
+                  true
+                ]
+              },
+              "canBeEnterprise": {
+                "$id": "#/items/anyOf/0/properties/prefs/properties/canBeEnterprise",
+                "type": "boolean",
+                "examples": [
+                  true
+                ]
+              },
+              "canBeOrg": {
+                "$id": "#/items/anyOf/0/properties/prefs/properties/canBeOrg",
+                "type": "boolean",
+                "examples": [
+                  true
+                ]
+              },
+              "canBePrivate": {
+                "$id": "#/items/anyOf/0/properties/prefs/properties/canBePrivate",
+                "type": "boolean",
+                "examples": [
+                  true
+                ]
+              },
+              "canInvite": {
+                "$id": "#/items/anyOf/0/properties/prefs/properties/canInvite",
+                "type": "boolean",
+                "examples": [
+                  true
+                ]
+              }
+            }
+          },
+          "subscribed": {
+            "$id": "#/items/anyOf/0/properties/subscribed",
+            "type": "boolean",
+            "examples": [
+              false
+            ]
+          },
+          "labelNames": {
+            "$id": "#/items/anyOf/0/properties/labelNames",
+            "type": "object",
+            "examples": [
+              {
+                "green": "",
+                "yellow": "",
+                "orange": "",
+                "red": "",
+                "purple": "",
+                "blue": "",
+                "sky": "",
+                "lime": "",
+                "pink": "",
+                "black": ""
+              }
+            ],
+            "required": [
+              "green",
+              "yellow",
+              "orange",
+              "red",
+              "purple",
+              "blue",
+              "sky",
+              "lime",
+              "pink",
+              "black"
+            ],
+            "properties": {
+              "green": {
+                "$id": "#/items/anyOf/0/properties/labelNames/properties/green",
+                "type": "string",
+                "examples": [
+                  ""
+                ]
+              },
+              "yellow": {
+                "$id": "#/items/anyOf/0/properties/labelNames/properties/yellow",
+                "type": "string",
+                "examples": [
+                  ""
+                ]
+              },
+              "orange": {
+                "$id": "#/items/anyOf/0/properties/labelNames/properties/orange",
+                "type": "string",
+                "examples": [
+                  ""
+                ]
+              },
+              "red": {
+                "$id": "#/items/anyOf/0/properties/labelNames/properties/red",
+                "type": "string",
+                "examples": [
+                  ""
+                ]
+              },
+              "purple": {
+                "$id": "#/items/anyOf/0/properties/labelNames/properties/purple",
+                "type": "string",
+                "examples": [
+                  ""
+                ]
+              },
+              "blue": {
+                "$id": "#/items/anyOf/0/properties/labelNames/properties/blue",
+                "type": "string",
+                "examples": [
+                  ""
+                ]
+              },
+              "sky": {
+                "$id": "#/items/anyOf/0/properties/labelNames/properties/sky",
+                "type": "string",
+                "examples": [
+                  ""
+                ]
+              },
+              "lime": {
+                "$id": "#/items/anyOf/0/properties/labelNames/properties/lime",
+                "type": "string",
+                "examples": [
+                  ""
+                ]
+              },
+              "pink": {
+                "$id": "#/items/anyOf/0/properties/labelNames/properties/pink",
+                "type": "string",
+                "examples": [
+                  ""
+                ]
+              },
+              "black": {
+                "$id": "#/items/anyOf/0/properties/labelNames/properties/black",
+                "type": "string",
+                "examples": [
+                  ""
+                ]
+              }
+            }
+          },
+          "shortUrl": {
+            "$id": "#/items/anyOf/0/properties/shortUrl",
+            "type": "string",
+            "examples": [
+              "https://trello.com/b/qZpZ1p41"
+            ]
+          },
+          "templateGallery": {
+            "$id": "#/items/anyOf/0/properties/templateGallery",
+            "type": "null",
+            "examples": [
+              null
+            ]
+          },
+          "premiumFeatures": {
+            "$id": "#/items/anyOf/0/properties/premiumFeatures",
+            "type": "array",
+            "examples": [
+              []
+            ],
+            "items": {
+              "$id": "#/items/anyOf/0/properties/premiumFeatures/items"
+            }
+          },
+          "memberships": {
+            "$id": "#/items/anyOf/0/properties/memberships",
+            "type": "array",
+            "examples": [
+              [
+                {
+                  "id": "60b9fdd2e806f462edab14d0",
+                  "idMember": "58e2ea757a3916917b9e586a",
+                  "memberType": "admin",
+                  "unconfirmed": false,
+                  "deactivated": false
+                }
+              ]
+            ],
+            "items": {
+              "$id": "#/items/anyOf/0/properties/memberships/items",
+              "anyOf": [
+                {
+                  "$id": "#/items/anyOf/0/properties/memberships/items/anyOf/0",
+                  "type": "object",
+                  "examples": [
+                    {
+                      "id": "60b9fdd2e806f462edab14d0",
+                      "idMember": "58e2ea757a3916917b9e586a",
+                      "memberType": "admin",
+                      "unconfirmed": false,
+                      "deactivated": false
+                    }
+                  ],
+                  "required": [
+                    "id",
+                    "idMember",
+                    "memberType",
+                    "unconfirmed",
+                    "deactivated"
+                  ],
+                  "properties": {
+                    "id": {
+                      "$id": "#/items/anyOf/0/properties/memberships/items/anyOf/0/properties/id",
+                      "type": "string",
+                      "examples": [
+                        "60b9fdd2e806f462edab14d0"
+                      ]
+                    },
+                    "idMember": {
+                      "$id": "#/items/anyOf/0/properties/memberships/items/anyOf/0/properties/idMember",
+                      "type": "string",
+                      "examples": [
+                        "58e2ea757a3916917b9e586a"
+                      ]
+                    },
+                    "memberType": {
+                      "$id": "#/items/anyOf/0/properties/memberships/items/anyOf/0/properties/memberType",
+                      "type": "string",
+                      "examples": [
+                        "admin"
+                      ]
+                    },
+                    "unconfirmed": {
+                      "$id": "#/items/anyOf/0/properties/memberships/items/anyOf/0/properties/unconfirmed",
+                      "type": "boolean",
+                      "examples": [
+                        false
+                      ]
+                    },
+                    "deactivated": {
+                      "$id": "#/items/anyOf/0/properties/memberships/items/anyOf/0/properties/deactivated",
+                      "type": "boolean",
+                      "examples": [
+                        false
+                      ]
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    ]
+  }
+}
