@@ -101,6 +101,18 @@ public class RequestSteps {
     }
 
     /**
+     * Sends create request.
+     *@param body post request.
+     * @param endpoint api endpoint.
+     */
+    @When("the user sends a POST request to {string} with  an empty data in name")
+    public void sendsPostRequestWithEmptyNameBoard(final String endpoint, final String body) {
+        String endpointMapped = Mapper.mapValue(endpoint, context.getData());
+        String bodyMapped = Mapper.mapValue(body, context.getData());
+        response = RequestManager.sendPostRequest(endpointMapped, bodyMapped);
+    }
+
+    /**
      * Verifies response status code.
      *
      * @param expectedStatusCode expected response status code.
